@@ -107,21 +107,21 @@ class Walker():
         while True:
             self.Force = Fsr.GetForce()
             self.Acceleration = Accele.GetAcceleration()
-            Reset = GPIO.input(24)
-            if Reset == 1:
-                os.system('sudo shutdown -r now')
+            #Reset = GPIO.input(24)
+            #if Reset == 1:
+            #os.system('sudo shutdown -r now')
             if self.Force == 1:
-                Active = False
-                if abs(self.Acceleration[1]) >= 1.27 or abs(self.Acceleration[2]) >= 1.27:
-                    Active = True
-                    mqttClient.publish("WalkerActive", "True")
-                    if time.time() - self.LastMotionTime >= 2700:
-                        self.MotionNotif = True
-                    if self.MotionNotif:
-                         self.MotionNotif = False
-                         self.LogMotion()
-                         self.SendMotionNotif()
-                         self.LastMotionTime = time.time()
+                #Active = False
+                #if abs(self.Acceleration[1]) >= 1.27 or abs(self.Acceleration[2]) >= 1.27:
+                Active = True
+                mqttClient.publish("WalkerActive", "True")
+                if time.time() - self.LastMotionTime >= 2700:
+                    self.MotionNotif = True
+                if self.MotionNotif:
+                    self.MotionNotif = False
+                    self.LogMotion()
+                    self.SendMotionNotif()
+                    self.LastMotionTime = time.time()
                 if not Active:
                     mqttClient.publish("WalkerActive", "False")
             else:   
