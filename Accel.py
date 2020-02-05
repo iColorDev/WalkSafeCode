@@ -14,4 +14,9 @@ class Accelerometer():
         
     def GetAcceleration(self):
         self.accel = self.lis3dh.acceleration
+<<<<<<< HEAD
         return self.accel
+=======
+        return self.accel
+    
+>>>>>>> 156c3064e36a9c088fb68bfaaac2632a99913196

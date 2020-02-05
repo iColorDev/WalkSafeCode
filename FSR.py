@@ -8,4 +8,8 @@ class ForceSensor():
 
     def GetForce(self):
         self.ForceReading = GPIO.input(23)
+<<<<<<< HEAD
         return self.ForceReading
+=======
+        return self.ForceReading
+>>>>>>> 156c3064e36a9c088fb68bfaaac2632a99913196

@@ -9,8 +9,15 @@ import paho.mqtt.client as mqtt
 import firebase_admin
 from firebase_admin import messaging
 from firebase_admin import credentials
+<<<<<<< HEAD
 import os
 
+=======
+import RPi.GPIO as GPIO
+import os
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(24, GPIO.IN)
+>>>>>>> 156c3064e36a9c088fb68bfaaac2632a99913196
 cred = credentials.Certificate("/home/pi/Desktop/WalkerCode/walksafe-cdc69-firebase-adminsdk-8833d-5de36f7cf6.json")
 firebase_admin.initialize_app(cred)
 Fsr = ForceSensor()
@@ -105,6 +112,12 @@ class Walker():
         while True:
             self.Force = Fsr.GetForce()
             self.Acceleration = Accele.GetAcceleration()
+<<<<<<< HEAD
+=======
+            #Reset = GPIO.input(24)
+            #if Reset == 1:
+            #os.system('sudo shutdown -r now')
+>>>>>>> 156c3064e36a9c088fb68bfaaac2632a99913196
             if self.Force == 1:
                 #Active = False
                 #if abs(self.Acceleration[1]) >= 1.27 or abs(self.Acceleration[2]) >= 1.27:
